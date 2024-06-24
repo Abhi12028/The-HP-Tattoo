@@ -22,7 +22,72 @@ body {
     min-height: 100vh;
     font-size: 1.3em;
     /* background: black; */
-    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);}
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+
+}
+
+/* top-sticky-section */
+
+.top-sticky-section {
+    width: 100%;
+    height: 2.5rem;
+    background-color: #d37836;
+    color: #fff;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 2;
+
+}
+
+.top-sticky-section ul {
+
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-sticky-section ul li {
+    margin: 0 1rem;
+}
+
+
+.top-sticky-section ul:first-child {
+    font-size: .9em;
+    /* position: relative; */
+
+}
+
+.top-sticky-section ul li img {
+    filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(165deg) brightness(107%) contrast(101%);
+    width: 1.5rem;
+}
+
+.top-sticky-section ul li:nth-child(2),
+.top-sticky-section ul li:nth-child(3),
+.top-sticky-section ul li:nth-child(4) {
+    margin: 0;
+}
+
+@media screen and (max-width: 710px) {
+    .listhide {
+        display: none;
+        /* Hide the first ul */
+    }
+
+    .top-sticky-section {
+        height: 3.2rem;
+    }
+}
+
+
+/* end top-sticky-section */
+
 
 
 /* hero-section-start */
@@ -44,7 +109,7 @@ body {
     flex-direction: row;
     justify-content: flex-end;
     margin: 0 2rem;
-    
+
     /* padding: 0 1.5rem; */
     /* background-color: black; */
 
@@ -56,7 +121,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 1.2rem 1rem;
+    margin: 1rem 1rem;
     position: relative;
     /* Added */
 }
@@ -77,6 +142,11 @@ body {
 
 .navlist li:first-child {
     margin-right: auto;
+}
+
+.menuButton {
+    position: relative;
+    bottom: 5rem;
 }
 
 .navlist {
@@ -119,10 +189,14 @@ a:hover {
     background-color: white;
 }
 
-.shop {
-    width: 6rem;
-    height: auto;
 
+.shop {
+    /* position: absolute; */
+    z-index: 1;
+    width: 16rem;
+    height: auto;
+    top: 0;
+    right: 60rem;
 }
 
 /* navbar-section-end */
@@ -156,8 +230,11 @@ a:hover {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.558);
 
     position: relative;
-    
+    top: -10rem;
+
 }
+
+
 
 
 
@@ -170,8 +247,8 @@ a:hover {
 }
 
 .sidebar {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 2rem;
     right: -2rem;
     height: 100vh;
     width: 15.6em;
@@ -187,21 +264,28 @@ a:hover {
 }
 
 @media screen and (max-width:450px) {
-    .hero-section-div h1{
+    .hero-section-div h1 {
         font-size: 4rem;
         margin: 0 1rem;
-        
+        top: -5rem;
+
+    }
+
+    .menuButton {
+        position: relative;
+        right: -3rem;
     }
 
     .sidebar {
         width: 100%;
+        top: 3.2rem;
     }
 
-    .hero-section-div{
+    .hero-section-div {
         flex-direction: column;
     }
 
-    .Contact-me-button{
+    .Contact-me-button {
         position: relative;
         top: -5rem;
     }
@@ -216,6 +300,8 @@ a:hover {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    filter: grayscale(100%);
+
 }
 
 
@@ -228,14 +314,10 @@ a:hover {
 
 .tattooInfo {
     position: relative;
-    padding: 5rem 1rem;
+    padding: 0 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
-
-    /* grid-template-rows: 1fr; */
-
-
 }
 
 
@@ -291,7 +373,7 @@ a:hover {
     }
 
     &:hover h2 {
-        inset: auto auto 12.5rem 1.6rem;
+        inset: auto auto 16rem 1.6rem;
         transition: inset .5s ease-out;
     }
 
@@ -310,17 +392,13 @@ a:hover {
 @media screen and (max-width: 450px) {
     .tattooInfo {
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
     }
 
     .card {
         width: 18rem;
         height: 30rem;
         margin: 1rem;
-
-        &:hover h2 {
-            inset: auto auto 12.4rem 1.6rem;
-        }
     }
 
 
@@ -331,13 +409,21 @@ a:hover {
 }
 
 /* gallary section start */
+
+h3 {
+    font-size: 5em;
+    font-weight: bolder;
+    text-align: center;
+}
+
 .gallary {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     margin: 3rem;
     margin-bottom: 5rem;
     position: relative;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 500px) {
@@ -392,9 +478,9 @@ a:hover {
     position: relative;
     top: 8rem;
 
-    background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-    
-    
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+
+
 
 
 
@@ -406,7 +492,7 @@ a:hover {
     filter: grayscale(100%);
     border-radius: 10px;
     margin: 0 1rem;
-    box-shadow:  15px 10px 13px rgb(32, 27, 27);
+    box-shadow: 15px 10px 13px rgb(32, 27, 27);
     position: relative;
     right: 2rem;
 
@@ -436,7 +522,7 @@ a:hover {
 
 .aboutme-card p {
     text-wrap: wrap;
-    line-height:1.5;
+    line-height: 1.5;
 }
 
 .aboutme-card-text h2 {
@@ -456,7 +542,7 @@ a:hover {
 
 @media screen and (max-width: 500px) {
 
-    
+
     .aboutme-card {
         flex-direction: column;
         /* margin: 0 2rem; */
@@ -511,7 +597,7 @@ a:hover {
 }
 
 @media screen and (max-width: 500px) {
-    #map{
+    #map {
         height: 50vh;
     }
 }
@@ -534,7 +620,8 @@ footer {
     top: 10rem;
     background-color: black;
 }
-footer p{
+
+footer p {
     text-decoration: underline;
 }
 
@@ -564,9 +651,6 @@ footer p{
     transform: scale(1.1);
 }
 
-source{
+source {
     width: 100%;
 }
-
-
-
